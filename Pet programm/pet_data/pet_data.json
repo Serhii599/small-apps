@@ -1,0 +1,69 @@
+{
+    "pets": {
+        "Luffy": {
+            "hunger": 90,
+            "happiness": 90,
+            "energy": 90
+        },
+        "Buggy": {
+            "hunger": 91,
+            "happiness": 91,
+            "energy": 91
+        },
+        "Monkey": {
+            "hunger": 90,
+            "happiness": 90,
+            "energy": 90
+        },
+        "Barbarossa": {
+            "hunger": 98,
+            "happiness": 93,
+            "energy": 93
+        },
+        "Markis": {
+            "hunger": 99,
+            "happiness": 99,
+            "energy": 99
+        },
+        "Huffy": {
+            "hunger": 90,
+            "happiness": 90,
+            "energy": 90
+        },
+        "Buddy": {
+            "hunger": 90,
+            "happiness": 90,
+            "energy": 90
+        },
+        "Gardy": {
+            "hunger": 90,
+            "happiness": 90,
+            "energy": 90
+        },
+        "Fluffy": {
+            "hunger": 90,
+            "happiness": 90,
+            "energy": 90
+        },
+        "Jojo": {
+            "hunger": 90,
+            "happiness": 90,
+            "energy": 90
+        },
+        "Habahaba": {
+            "hunger": 90,
+            "happiness": 90,
+            "energy": 90
+        },
+        "Ululu": {
+            "hunger": 94,
+            "happiness": 94,
+            "energy": 94
+        },
+        "Lolo": {
+            "hunger": 98,
+            "happiness": 98,
+            "energy": 98
+        }
+    }
+}
