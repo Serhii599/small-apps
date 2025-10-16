@@ -4,7 +4,7 @@ import sys
 import time
 import threading
 
-SAVE_DIR = "/Users/Serhii/Documents/Pet programm/pet_data" # here enter dir you want this program save file to be
+SAVE_DIR = "/Users/Serhii/Documents/Small projects/Pet programm/pet_data" # here enter dir you want this program save file to be
 FILE_PATH = os.path.join(SAVE_DIR, "pet_data.json")
 os.makedirs(SAVE_DIR, exist_ok=True)
 

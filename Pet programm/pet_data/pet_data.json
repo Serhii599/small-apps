@@ -1,69 +1,74 @@
 {
     "pets": {
         "Luffy": {
-            "hunger": 90,
-            "happiness": 90,
-            "energy": 90
+            "hunger": 66,
+            "happiness": 66,
+            "energy": 66
         },
         "Buggy": {
-            "hunger": 91,
-            "happiness": 91,
-            "energy": 91
+            "hunger": 67,
+            "happiness": 67,
+            "energy": 67
         },
         "Monkey": {
-            "hunger": 90,
-            "happiness": 90,
-            "energy": 90
+            "hunger": 66,
+            "happiness": 66,
+            "energy": 66
         },
         "Barbarossa": {
-            "hunger": 98,
-            "happiness": 93,
-            "energy": 93
+            "hunger": 74,
+            "happiness": 89,
+            "energy": 79
         },
         "Markis": {
+            "hunger": 75,
+            "happiness": 75,
+            "energy": 75
+        },
+        "Huffy": {
+            "hunger": 66,
+            "happiness": 66,
+            "energy": 66
+        },
+        "Buddy": {
+            "hunger": 66,
+            "happiness": 66,
+            "energy": 66
+        },
+        "Gardy": {
+            "hunger": 66,
+            "happiness": 66,
+            "energy": 66
+        },
+        "Fluffy": {
+            "hunger": 66,
+            "happiness": 66,
+            "energy": 66
+        },
+        "Jojo": {
+            "hunger": 66,
+            "happiness": 66,
+            "energy": 66
+        },
+        "Habahaba": {
+            "hunger": 66,
+            "happiness": 66,
+            "energy": 66
+        },
+        "Ululu": {
+            "hunger": 70,
+            "happiness": 70,
+            "energy": 70
+        },
+        "Lolo": {
+            "hunger": 74,
+            "happiness": 74,
+            "energy": 74
+        },
+        "lila": {
             "hunger": 99,
             "happiness": 99,
             "energy": 99
-        },
-        "Huffy": {
-            "hunger": 90,
-            "happiness": 90,
-            "energy": 90
-        },
-        "Buddy": {
-            "hunger": 90,
-            "happiness": 90,
-            "energy": 90
-        },
-        "Gardy": {
-            "hunger": 90,
-            "happiness": 90,
-            "energy": 90
-        },
-        "Fluffy": {
-            "hunger": 90,
-            "happiness": 90,
-            "energy": 90
-        },
-        "Jojo": {
-            "hunger": 90,
-            "happiness": 90,
-            "energy": 90
-        },
-        "Habahaba": {
-            "hunger": 90,
-            "happiness": 90,
-            "energy": 90
-        },
-        "Ululu": {
-            "hunger": 94,
-            "happiness": 94,
-            "energy": 94
-        },
-        "Lolo": {
-            "hunger": 98,
-            "happiness": 98,
-            "energy": 98
         }
     }
 }

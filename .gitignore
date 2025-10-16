@@ -1,0 +1,31 @@
+# Ignore all files ending with .log
+*.log
+
+# Ignore all files ending with .tmp
+*.tmp
+
+# Ignore the entire 'node_modules' directory
+node_modules/
+
+# Ignore the 'build' directory and its contents
+build/
+
+# Ignore a specific file named 'config.local.js'
+config.local.js
+
+# Ignore all files with the .DS_Store extension (macOS specific)
+.DS_Store
+
+# Ignore all files with the .env extension
+.env
+
+# Ignore compiled Python files
+*.pyc
+
+# Ignore virtual environment directories
+venv/
+.venv/
+
+# Ignore editor-specific files
+.vscode/
+.idea/
