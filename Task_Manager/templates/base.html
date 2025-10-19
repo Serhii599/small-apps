@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block head %}
+    {% endblock %}
+
+</head>
+<body>
+
+    <div id="content">{% block content %}{% endblock %}</div>
+    <footer id="footer">
+    {% block footer %}
+    <br>
+    &copy; Copyright 2025 by <a href="https://www.facebook.com/profile.php?id=61572798751998">Serhii Plavutskyi</a>.
+    {% endblock %}
+  </footer>
+</body>
+</html>
