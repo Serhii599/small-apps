@@ -8,7 +8,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('tasks', '0003_rename_projects_project_rename_tasksinfo_task'),
+        ('main_app', '0003_rename_projects_project_rename_tasksinfo_task'),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 

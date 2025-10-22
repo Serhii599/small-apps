@@ -25,7 +25,7 @@ class Migration(migrations.Migration):
                 ('due_date', models.DateTimeField()),
                 ('created_at', models.DateTimeField()),
                 ('assignee', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
-                ('collaborators', models.ManyToManyField(related_name='tasks', to=settings.AUTH_USER_MODEL)),
+                ('collaborators', models.ManyToManyField(related_name='main_app', to=settings.AUTH_USER_MODEL)),
             ],
         ),
         migrations.CreateModel(
@@ -34,7 +34,7 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('project_name', models.CharField(max_length=100)),
                 ('project_description', models.TextField()),
-                ('project_tasks', models.ManyToManyField(to='tasks.tasksinfo')),
+                ('project_tasks', models.ManyToManyField(to='main_app.tasksinfo')),
             ],
         ),
     ]

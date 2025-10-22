@@ -7,7 +7,7 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('tasks', '0002_remove_projects_project_tasks_projects_collaborators_and_more'),
+        ('main_app', '0002_remove_projects_project_tasks_projects_collaborators_and_more'),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 

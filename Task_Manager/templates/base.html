@@ -2,17 +2,80 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    {% block head %}
-    {% endblock %}
+    <style>
+        header {
+          display: flex;
+          justify-content: space-between; /* розкидає елементи вліво і вправо */
+          align-items: center;             /* вирівнює по вертикалі */
+          padding: 10px 20px;
+          background-color: #f5f5f5;
+        }
 
+        .header-left {
+          font-weight: bold;
+        }
+
+        .header-right {
+          display: flex;
+          align-items: center;
+          gap: 10px; /* відступ між елементами */
+        }
+        body {
+          padding-bottom: 50px; /* щоб футер не перекривав контент */
+        }
+        footer {
+          display: flex;
+          justify-content: space-between; /* ліво-центр-право */
+          align-items: center;            /* вирівнює по вертикалі */
+          padding: 10px;
+          background-color: #f5f5f5;
+          border-top: 1px solid #ccc;
+          position: fixed;   /* якщо хочеш, щоб футер завжди був видно */
+          bottom: 0;
+          left: 0;
+          width: 100%;
+        }
+        .footer-left {
+          align-items: left;
+        }
+
+        .footer-right {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+    </style>
 </head>
 <body>
+    <header>
+    {% block head %}
+        <div class="header-left">
+            <h3>My App</h3>
+        </div>
+        <div class="header-right">
+            <div><a href="{% url 'main_app:task_create' %}">Create task</a></div>
+            <div><a href="{% url 'main_app:project_create' %}">Create project</a></div>
+            <div><a href="{% url 'main_app:my_tasks' %}">My tasks</a></div>
+            <div>Welcome {{ user.first_name }}</div>
+        </div>
+    {% endblock %}
+    </header>
 
+    <main>
     <div id="content">{% block content %}{% endblock %}</div>
+    </main>
+
     <footer id="footer">
     {% block footer %}
-    <br>
-    &copy; Copyright 2025 by <a href="https://www.facebook.com/profile.php?id=61572798751998">Serhii Plavutskyi</a>.
+        <div class="footer-left">
+            <form method="post" action="{% url 'authentication:logout' %}">
+              {% csrf_token %}
+              <button type="submit">Logout</button>
+            </form>
+        </div>
+        <div class="footer-right">
+        &copy; Copyright 2025 by <a href="https://www.facebook.com/profile.php?id=61572798751998">Serhii Plavutskyi</a>.
+        </div>
+
     {% endblock %}
   </footer>
 </body>

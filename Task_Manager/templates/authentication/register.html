@@ -14,5 +14,10 @@
         </div>
       </form>
     </div>
+  {% if user.is_authenticated %}
+        <ul><li>
+            You are already authenticated to your current account <br/> Maybe, you want to <a href="{% url 'authentication:logout' %}">Logout</a>?
+        </li></ul>
+  {% endif %}
 </body>
 </html>

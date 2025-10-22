@@ -9,7 +9,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('tasks', '0001_initial'),
+        ('main_app', '0001_initial'),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
@@ -45,8 +45,8 @@ class Migration(migrations.Migration):
         ),
         migrations.AddField(
             model_name='projects',
-            name='tasks',
-            field=models.ManyToManyField(related_name='projects', to='tasks.tasksinfo'),
+            name='main_app',
+            field=models.ManyToManyField(related_name='projects', to='main_app.tasksinfo'),
         ),
         migrations.AlterField(
             model_name='tasksinfo',
