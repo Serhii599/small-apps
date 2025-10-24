@@ -1,3 +1,4 @@
+from django.contrib.auth import get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
@@ -7,9 +8,8 @@ from django.contrib.auth.views import LoginView as BaseLoginView, LogoutView
 
 from .forms import CustomUserCreationForm
 
+User = get_user_model()
 
-class UsersListView(LoginRequiredMixin, ListView):
-    pass
 
 class UserRegisterView(SuccessMessageMixin, FormView):
     template_name = "authentication/register.html"

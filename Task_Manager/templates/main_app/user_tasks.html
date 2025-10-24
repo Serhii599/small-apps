@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}My tasks table{% endblock %}
+{% block content %}
+   <div>
+       <div>
+           {{ user.first_name }} Tasks
+       </div>
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Priority</th>
+                <th>Due date</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for task in tasks %}
+            <tr>
+                <th>{{ task.task_name }}</th>
+                <th>{{ task.task_description }}</th>
+                <th>{{ task.status }}</th>
+                <th>{{ task.priority }}</th>
+                <th>{{ task.due_date }}</th>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
