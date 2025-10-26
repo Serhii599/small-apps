@@ -25,12 +25,15 @@ class Project(models.Model):
     project_description = models.TextField()
     status = models.CharField(max_length=100, choices=Status.choices, default=Status.BACKLOG)
     priority = models.CharField(max_length=100, choices=Priorities.choices, default=Priorities.LOW)
-    tasks = models.ManyToManyField('Task', related_name='projects')
     task_count = models.PositiveIntegerField(default=0)
     creator = models.ForeignKey(User, on_delete=models.SET_NULL, related_name='created_project', null=True, blank=True)
+    tasks = models.ManyToManyField('Task', related_name='projects')
     collaborators = models.ManyToManyField(User, related_name="collaborating_projects")
 
     created_at = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return self.project_name
 
 class Task(models.Model):
     task_name = models.CharField(max_length=100)
@@ -44,7 +47,10 @@ class Task(models.Model):
 
     created_at = models.DateTimeField(default=timezone.now)
 
+    def __str__(self):
+        return self.task_name
+
 @receiver(m2m_changed, sender=Project.tasks.through)
 def update_tasks_count(sender, instance, **kwargs):
-    instance.task_count = instance.task.count()
-    instance.save(update_fields=['tasks_count'])
+    instance.task_count = instance.tasks.count()
+    instance.save(update_fields=['task_count'])

@@ -1,13 +1,23 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import render
+from django.http import HttpResponseRedirect, HttpResponse
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.generic import View, ListView, TemplateView, CreateView, UpdateView, DeleteView
 from django.shortcuts import get_object_or_404
 
-from .forms import TaskCreationForm
+from .forms import TaskCreationForm, ProjectCreationForm
 from .models import *
 
 User = get_user_model()
+
+
+class MainView(View):
+    def get(self, request):
+        if request.user.is_authenticated:
+            return redirect('main_app:my_tasks')
+        else:
+            return redirect('authentication:login')
+
 
 class MyTasksListView(LoginRequiredMixin, ListView):
     model = Task
@@ -21,16 +31,23 @@ class OneTaskListView(LoginRequiredMixin, ListView):
     pass
 
 class ProjectsListView(LoginRequiredMixin, ListView):
-    pass
+    model = Project
+    context_object_name = 'projects'
+    template_name = 'main_app/projects_list.html'
+
 
 class OneProjectListView(LoginRequiredMixin, ListView):
     pass
 
 class ProjectCreateView(LoginRequiredMixin, CreateView):
     model = Project
-    fields = ['project_name', 'project_description', 'priority']
-    template_name = "main_app/task_create.html"
+    form_class = ProjectCreationForm
+    template_name = "main_app/project_create.html"
     success_url = reverse_lazy("main_app:project_create")
+
+    def form_valid(self, form):
+        form.instance.creator = self.request.user
+        return super().form_valid(form)
 
 
 class TaskCreateView(LoginRequiredMixin, CreateView):
@@ -44,6 +61,7 @@ class TaskCreateView(LoginRequiredMixin, CreateView):
         form.instance.creator = self.request.user
         return super().form_valid(form)
 
+
 class ProjectUpdateView(LoginRequiredMixin, UpdateView):
     pass
 
@@ -54,7 +72,8 @@ class ProjectDeleteView(LoginRequiredMixin, DeleteView):
     pass
 
 class TaskDeleteView(LoginRequiredMixin, DeleteView):
-    pass
+    model = Task
+    success_url = reverse_lazy('main_app:my_tasks')
 
 class UsersListView(LoginRequiredMixin, ListView):
     model = User

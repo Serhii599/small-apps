@@ -1,5 +1,5 @@
 from django.contrib.auth import get_user_model
-from .models import Task
+from .models import Task, Project
 from django import forms
 
 User = get_user_model()
@@ -23,3 +23,13 @@ class TaskCreationForm(forms.ModelForm):
             # список усіх юзерів у випадаючому списку
             self.fields['assignee'].queryset = User.objects.all()
             self.fields['collaborators'].queryset = User.objects.all()
+
+class ProjectCreationForm(forms.ModelForm):
+    class Meta:
+        model = Project
+        fields = ['project_name', 'project_description', 'priority', 'status', 'tasks', 'collaborators']
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['tasks'].queryset = Task.objects.all()
+        self.fields['collaborators'].queryset = User.objects.all()

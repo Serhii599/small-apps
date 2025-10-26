@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 {% block title %}My tasks table{% endblock %}
 {% block content %}
-    <div>
         <table>
             <thead>
             <tr>
@@ -10,21 +9,33 @@
                 <th>Description</th>
                 <th>Status</th>
                 <th>Priority</th>
+                <th>Project</th>
                 <th>Due date</th>
+                <th>Delete</th>
             </tr>
             </thead>
             <tbody>
             {% for task in tasks %}
             <tr>
-                <th>{{ task.task_name }}</th>
-                <th>{{ task.assignee.first_name }}</th>
-                <th>{{ task.task_description }}</th>
-                <th>{{ task.status }}</th>
-                <th>{{ task.priority }}</th>
-                <th>{{ task.due_date }}</th>
+                <td>{{ task.task_name }}</td>
+                <td>{{ task.assignee.first_name }}</td>
+                <td>{{ task.task_description }}</td>
+                <td>{{ task.status }}</td>
+                <td>{{ task.priority }}</td>
+                {% for project in task.projects.all %}
+                    <td>{{ project.project_name }}</td>
+                {% empty %}
+                    <td></td>
+                {% endfor %}
+                <td>{{ task.due_date }}</td>
+                <td class="center-button">
+                    <form  method="post" action="{% url 'main_app:task_delete' task.id %}">
+                    {% csrf_token %}
+                    <button type="submit" class="button-24">X</button>
+                    </form>
+                </td>
             </tr>
             {% endfor %}
             </tbody>
         </table>
-    </div>
 {% endblock %}

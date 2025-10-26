@@ -27,7 +27,7 @@
                 <ul class="sidebar-content">
                   <li><a href="#">Home</a></li>
                   <li><a href="{% url 'main_app:my_tasks' %}" class="{% if request.path == '/tasks/' %}active{% endif %}">My tasks</a></li>
-                  <li><a href="#">Projects</a></li>
+                  <li><a href="{% url 'main_app:projects_view' %}" class="{% if request.path == '/projects/' %}active{% endif %}">Projects</a></li>
                 </ul>
                 <div class="sidebar-bottom">
                 <form method="post" action="{% url 'authentication:logout' %}">
