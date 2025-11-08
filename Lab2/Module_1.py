@@ -172,7 +172,7 @@ class Calulations:
         result = sys_readiness_coeff * t * lam_r_sum + t * lam_r_sum
         
         result = result / 2
-        return round(result, 1)
+        return result
 
 
 # ===== Головна програма =====
