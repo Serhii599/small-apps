@@ -21,11 +21,11 @@
     {% endblock %}
     </header>
 
-    <main>
+    <main class="layout">
         <div class="container">
             <div class="sidebar">
                 <ul class="sidebar-content">
-                  <li><a href="#">Home</a></li>
+                  <li><a href="{% url 'main_app:users_list' %}" {% if request.path == '/users/' %}class="active"{% endif %}>Users list</a></li>
                   <li><a href="{% url 'main_app:my_tasks' %}" class="{% if request.path == '/tasks/' %}active{% endif %}">My tasks</a></li>
                   <li><a href="{% url 'main_app:projects_view' %}" class="{% if request.path == '/projects/' %}active{% endif %}">Projects</a></li>
                 </ul>
